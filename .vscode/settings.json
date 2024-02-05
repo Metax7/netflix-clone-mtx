@@ -1,0 +1,18 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.rulers": [80, 120],
+  "editor.tabSize": 2,
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.exclude": {
+    "javascript/.next/": true,
+    "/.DS_Store": true,
+    "/.git": true,
+    "javascript/node_modules/": true
+  },
+  "prettier.printWidth": 80,
+  "search.exclude": {}
+}
