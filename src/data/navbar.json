@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Home",
+    "href": "/"
+  },
+  {
+    "title": "Series",
+    "href": "/#"
+  },
+  {
+    "title": "Films",
+    "href": "/#"
+  },
+  {
+    "title": "New & Popular",
+    "href": "/#"
+  },
+  {
+    "title": "My List",
+    "href": "/#"
+  },
+  {
+    "title": "Browse by Languages",
+    "href": "/#"
+  }
+]
