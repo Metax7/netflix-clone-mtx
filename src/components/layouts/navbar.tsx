@@ -2,9 +2,13 @@ import React from "react";
 import data from "@/data/navbar.json";
 import Link from "next/link";
 import { BiBell, BiSearch } from "react-icons/bi";
-// import UserNav from "../userNav";
+import UserNav from "../userNav";
+import { authOptions } from "@/utils/auth";
+import { getServerSession } from "next-auth";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await getServerSession(authOptions);
+
   return (
     <div className="mx-auto max-w-screen-2xl px-7 py-10 sm:px-20 2xl:px-0">
       <div className="flex items-center justify-between">
@@ -25,7 +29,10 @@ export default function Navbar() {
         <div className="flex items-center gap-x-8">
           <BiSearch className="h-5 w-5 cursor-pointer text-gray-300" />
           <BiBell className="h-5 w-5 cursor-pointer text-gray-300" />
-          {/* <UserNav /> */}
+          <UserNav
+            userEmail={session?.user?.email}
+            userImage={session?.user?.image}
+          />
         </div>
       </div>
     </div>
