@@ -21,7 +21,7 @@ const AuthComponent = () => {
   }, []);
 
   return (
-    <div className="relative h-screen w-full bg-[url('/images/hero.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
+    <div className="relative h-screen w-full bg-auth-hero bg-cover bg-fixed bg-center bg-no-repeat">
       <div className="h-full w-full bg-black lg:bg-opacity-50">
         <nav className="px-12 py-5">
           <img src="/images/logo.png" className="h-12" alt="Logo" />
