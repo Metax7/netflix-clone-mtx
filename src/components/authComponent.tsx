@@ -1,20 +1,16 @@
 "use client";
 
 import React from "react";
-// import axios from "axios";
 import { useCallback, useState } from "react";
 import Input from "@/components/input";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { signIn } from "next-auth/react";
-// import { useRouter } from "next/navigation";
 
 const AuthComponent = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-
-  // const router = useRouter();
 
   const [variant, setVariant] = useState("login");
 
@@ -24,39 +20,17 @@ const AuthComponent = () => {
     );
   }, []);
 
-  // const login = useCallback(async () => {
-  //   try {
-  //     await signIn("credentials", {
-  //       email,
-  //       password,
-  //       redirect: false,
-  //       callbackUrl: "/",
-  //     });
-
-  //     router.push("/profiles");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [email, password, router]);
-
-  // const register = useCallback(async () => {
-  //   try {
-  //     await axios.post("/api/auth", {
-  //       email,
-  //       name,
-  //       password,
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [email, name, password, login]);
   return (
-    <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
+    <div className="relative h-screen w-full bg-[url('/images/hero.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
       <div className="h-full w-full bg-black lg:bg-opacity-50">
         <nav className="px-12 py-5">
           <img src="/images/logo.png" className="h-12" alt="Logo" />
         </nav>
-        <form className="flex justify-center">
+        <form
+          method="post"
+          action="api/auth/signin"
+          className="flex justify-center"
+        >
           <div className="mt-2 w-full self-center rounded-md bg-black bg-opacity-70 px-16 py-16 lg:w-2/5 lg:max-w-md">
             <h2 className="mb-8 text-4xl font-semibold text-white">
               {variant === "login" ? "Sign in" : "Register"}
@@ -87,20 +61,20 @@ const AuthComponent = () => {
               />
             </div>
             <button
-              // onClick={register}
+              type="submit"
               className="mt-10 w-full rounded-md bg-red-600 py-3 text-white transition hover:bg-red-700"
             >
               {variant === "login" ? "Login" : "Sign up"}
             </button>
             <div className="mt-8 flex flex-row items-center justify-center gap-4">
               <div
-                onClick={() => signIn("google", { callbackUrl: "/" })}
+                onClick={() => signIn("google")}
                 className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white transition hover:opacity-80"
               >
                 <FcGoogle size={32} />
               </div>
               <div
-                onClick={() => signIn("github", { callbackUrl: "/" })}
+                onClick={() => signIn("github")}
                 className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white transition hover:opacity-80"
               >
                 <FaGithub size={32} />
